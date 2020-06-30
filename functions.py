@@ -38,7 +38,7 @@ def leeLineas(n,archivo):
     return(respuesta)
 
 l=str(leeLineas(3,"archivo1.txt")[1])
-print(l)
+
 
 #print (root.filename.name)
 
@@ -59,8 +59,17 @@ scrollbarx.config( command = canvas.xview )
 ##img = PhotoImage(file="flor.jpg")      
 img = ImageTk.PhotoImage(Image.open(root.filename.name))
 canvas.create_image(0,0, anchor=NW, image=img)      
+r=reconocer_caras(l)
+print(r)
+cont=0
+d=len(r)
+while cont<d:
+    x1=(r[cont]["vertices"][0]["x"])
+    y1=(r[cont]["vertices"][0]["y"])
+    x2=(r[cont]["vertices"][2]["x"])
+    y2=(r[cont]["vertices"][2]["y"])
+    canvas.create_rectangle(x1, y1, x2, y2, width=5, fill='red', stipple="gray12")
+    cont+=1
 
-#canvas.create_rectangle(100, 70, 500, 507, width=5, fill='red', stipple="gray12")
-print(reconocer_caras(l))
 root.mainloop()
 
