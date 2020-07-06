@@ -3,10 +3,10 @@ from google.cloud import vision
 from google.cloud.vision import types
 
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS']= r'key.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS']= r"C:\Users\Walmart\Desktop\github\Proyecto2_T\key.json"
 client=vision.ImageAnnotatorClient()
 
-
+ 
 def reconocer_caras(url):
 
     with io.open(url,'rb') as image_file:
@@ -51,5 +51,4 @@ def reconocer_caras(url):
         faces_list.append(face_dict)
     #retorna lista de objetos con características del reconocimiento facial     
     return (faces_list)
-
 
